@@ -239,13 +239,31 @@ card_creation = []                                           #A list of all card
 root_window = tk.Tk()
 screen_size = (root_window.winfo_screenwidth(),root_window.winfo_screenheight())
 
+#Creating a button to force the root_window to update.
+force_update_button = tk.Button()
+force_update_button.pack()
+force_update_button.update()
+
+#Find taskbar and titlebar heights.
+if platform.system() == "Windows":
+    from win32api import GetMonitorInfo, MonitorFromPoint
+    from win32gui import GetWindowRect, GetClientRect, FindWindow
+    monitor_info = GetMonitorInfo(MonitorFromPoint((0,0)))
+    work_area = monitor_info.get("Work")
+    taskbar_height = screen_size[1]-work_area[3]
+    force_update_button.destroy()
+
+    root_window_handle = FindWindow(None, "tk")
+    rect = GetWindowRect(root_window_handle)
+    client_rect = GetClientRect(root_window_handle)
+    windowOffset = int((rect[2]-rect[0]-client_rect[2])/2)
+    titlebar_height = int(rect[3]-rect[1]-client_rect[3]-windowOffset)
+else:
+    taskbar_height = 40
+    titlebar_height = 31
+
 #Setting the font for future windows.
 font = tk.font.Font(font = ("arial",-12,"normal"))
-
-#Sizing and positioning windows.
-#Taskbar and titlebar heights.
-taskbar_height = 40
-titlebar_height = 31
 
 #Usable screen space.
 screen_size_no_taskbar = (screen_size[0],screen_size[1]-taskbar_height)
@@ -358,23 +376,5 @@ print_interpretation_button = tk.Button(
 
 print_interpretation_button.bind("<Button 1>", print_interpretation)
 print_interpretation_button.pack()
-
-
-###Code to find taskbar and titlebar heights in Windows.###
-'''
-from win32api import GetMonitorInfo, MonitorFromPoint
-from win32gui import GetWindowRect, GetClientRect, FindWindow
-monitor_info = GetMonitorInfo(MonitorFromPoint((0,0)))
-work_area = monitor_info.get("Work")
-worked_taskbar_height = screen_size[1]-work_area[3]
-
-root_window_handle = FindWindow(None, "Tarot Reader")
-rect = GetWindowRect(root_window_handle)
-client_rect = GetClientRect(root_window_handle)
-windowOffset = int((rect[2]-rect[0]-client_rect[2])/2)
-worked_title_bar_height = int(rect[3]-rect[1]-client_rect[3]-windowOffset)
-print(f"The taskbar height is: {worked_taskbar_height}.\nThe titlebar height is: {worked_title_bar_height}.")
-'''
-############################################################
 
 root_window.mainloop()
