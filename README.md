@@ -1,8 +1,8 @@
 # Tarot-Reader
 
 ## Project Description
-This "Tarot Reader" will allow you to draw cards from a virtual Tarot deck.
-It automatically arranges them in some pre-determined spread,
+This "Tarot Reader" will allow you to draw cards from a virtual Tarot deck.  
+It automatically arranges them in some pre-determined spread,  
 then tells you what it all means!
 
 ## How to Install Tarot-Reader
@@ -21,7 +21,7 @@ then tells you what it all means!
 
 
 ## Credits
-Author: Joseph McKeown
+Author: Joseph McKeown  
 Special thanks to Thomas McKeown and Damian Nowacki for their help during development.
 
 ## Licence
