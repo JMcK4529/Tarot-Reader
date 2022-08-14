@@ -119,7 +119,7 @@ def create_card(val,ori,pos):
     card_creation[-1][0].title(f"{global_deck_dict[val][0]}")
     card_frame = tk.Frame(card_toplevel)
     card_canvas = tk.Canvas(card_frame, width = card_size[0], height = card_size[1])
-    card_img = (Image.open(f'{val}.jpg')).resize(card_size)
+    card_img = (Image.open(f'Card_Images/{val}.jpg')).resize(card_size)
     if ((ori == 2) and (len(global_deck_dict[val][0]) > 21)):
         card_img = card_img.rotate(180)
         reversed_set = " (Reversed)"
@@ -305,7 +305,7 @@ draw_card_button = tk.Button(
     text = "Draw a card.",
     width = root_window_interior[0],
     height = int(root_window_interior[1]/3),
-    bg = "purple",
+    bg = "#66369D",
     fg = "white",
     image = tk.PhotoImage(width = 1, height = 1),
     compound = "c"
@@ -324,8 +324,8 @@ three_card_spread_button = tk.Button(
     text = "Three\nCard\nSpread",
     width = int(root_window_interior[0]/3)-8,
     height = int(root_window_interior[1]/3),
-    bg = "#909090",
-    fg = "#F0F0F0",
+    bg = "#BF9553",
+    fg = "white",
     image = tk.PhotoImage(width = 1, height = 1),
     compound = "c"
     )
@@ -336,8 +336,8 @@ self_love_spread_button = tk.Button(
     text = "Self\nLove\nSpread",
     width = int(root_window_interior[0]/3),
     height = int(root_window_interior[1]/3),
-    bg = "#909090",
-    fg = "#F0F0F0",
+    bg = "#BF9553",
+    fg = "white",
     image = tk.PhotoImage(width = 1, height = 1),
     compound = "c"
     )
@@ -348,8 +348,8 @@ journey_spread_button = tk.Button(
     text = "Journey\nSpread",
     width = int(root_window_interior[0]/3)-8,
     height = int(root_window_interior[1]/3),
-    bg = "#909090",
-    fg = "#F0F0F0",
+    bg = "#BF9553",
+    fg = "white",
     image = tk.PhotoImage(width = 1, height = 1),
     compound = "c"
     )
