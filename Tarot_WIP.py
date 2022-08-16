@@ -6,6 +6,18 @@ from tkinter import messagebox, font
 from PIL import Image, ImageTk
 import platform
 
+tk.messagebox.showinfo(message="Copyright (C) 2022 Joseph McKeown\n"+
+"This program is free software: you can redistribute it and/or modify "+
+"it under the terms of the GNU General Public License as published by "+
+"the Free Software Foundation, either version 3 of the License, or "+
+"(at your option) any later version.\n\n"+
+"This program is distributed in the hope that it will be useful, "+  
+"but WITHOUT ANY WARRANTY; without even the implied warranty of "+
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nSee the "+     
+"GNU General Public License for more details.\n\n"+
+"You should have received a copy of the GNU General Public License "+
+"along with this program.  If not, see <http://www.gnu.org/licenses/>.")
+
 #Constructing the dictionary of Tarot cards and their one word interpretations, using a csv as the source.
 #The nth card in the global_deck_dict has the following properties:
 #global_deck_dict[n] = [Card_Name, Meaning_Upright, Meaning_Reversed]
